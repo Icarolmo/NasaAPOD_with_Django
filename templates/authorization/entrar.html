@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style_login.css' %}">
+    <title>login</title>
+</head>
+<body>
+
+    {% for message in messages %}
+    <div class="alert-login">
+        <div class="alert-content-login" id="alert-content">
+            <p><strong>Mensagem:</strong> {{ message }} 
+                <button type="button" class="close" onclick="closeAlert();" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="main-login">
+        <div class="left-login">
+            <h1>Problemas com o login?<br>Entre em contato conosco<br>pelo nosso E-mail!</h1>
+            <img src="{% static 'img/astronaut-suit-animate.svg' %}" class="left-login-image" alt="astronaut-animate">
+        </div>
+        <div class="rigth-login">
+            <div class="card-login">
+                    <h1>Login</h1>
+                    <div class="card-content-login">  
+                        <div class="form-login">
+                            <form action="/entrar" method="post">{% csrf_token %}
+                                <label for="">Username</label>
+                                <input type="username" name="username" placeholder="Insira seu nome de usuário">    
+                                <label for="">Senha</label>
+                                <input type="password" name="senha" placeholder="Insira sua senha">
+                                <button type="submit">Entrar</button>
+                            </form>
+                        </div>
+                        <div class="or-line"> 
+                            <span class="line"></span>
+                            <h5 aria-level="5">ou</h5>
+                            <span class="line"></span>
+                        </div>
+                        <div class="btn-redirect-login">
+                            <button type="button" onclick=window.location.href="{% url 'cadastro' %}" >Registrar-se</button>
+                            <button type="button" onclick=window.location.href="{% url 'index' %}" >Voltar para home</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+function closeAlert() {
+    var alert = document.getElementById('alert-content');
+    alert.style.display = 'none';
+    }
+</script>

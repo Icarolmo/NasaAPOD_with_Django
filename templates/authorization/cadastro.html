@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{% static 'css/style_cadastro.css' %}">
+    <title>Cadastro</title>
+</head>
+<body>
+
+    {% for message in messages %}
+    <div class="alert-cadastro">
+        <div class="alert-content-cadastro" id="alert-content">
+            <p><strong>Mensagem:</strong> {{ message }} 
+                <button type="button" class="close" onclick="closeAlert();" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="main-cadastro">
+        <div class="left-cadastro">
+            <h1>Preencha os campos com seus dados<br><br>Utilize no cadastro um email válido<br>para enviarmos o link de ativação da conta</h1>
+            <img src="{% static 'img/alien-science-animate.svg' %}" class="left-cadastro-image" alt="alien-animate">
+        </div>
+        <div class="rigth-cadastro">
+            <div class="card-cadastro">
+                    <h1>Cadastro</h1>
+                    <div class="card-content-cadastro">  
+                        <div class="form-cadastro">
+                            <form action="/cadastro" method="post">{% csrf_token %}
+                                    <label for="">Nome</label>
+                                    <input type="text" name="nome" placeholder="Insira seu primeiro nome">
+                                    <label for="">Sobrenome</label>
+                                    <input type="text" name="sobrenome" placeholder="Insira seu segundo nome">
+                                    <label for="">Username</label>
+                                    <input type="text" name="username" placeholder="Crie um nome de usuário">
+                                    <label for="">Email</label>
+                                    <input type="email" name="email" placeholder="Insira seu e-mail para contato">
+                                    <label for="">Senha</label>
+                                    <input type="password" name="senha" id="senha" placeholder="Crie uma senha">
+                                    <label for="">Confirme sua senha</label>
+                                    <input type="password" name="senha" id="senha" placeholder="Confirme a senha">
+                              <button type="submit">Criar conta</button>
+                            </form>
+                        </div>
+                        <div class="or-line">
+                            <span class="line"></span>
+                            <h5 aria-level="5">ou</h5>
+                            <span class="line"></span>
+                        </div> 
+                        <div class="btn-redirect-cadastro">
+                            <button type="button" onclick=window.location.href="{% url 'index' %}" >Voltar para home</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+function closeAlert() {
+    var alert = document.getElementById('alert-content');
+    alert.style.display = 'none';
+    }
+</script>

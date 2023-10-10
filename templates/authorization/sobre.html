@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style_sobre.css' %}">
+    <title>Sobre</title>
+</head>
+<body>
+    <div class="main-index">
+        <div class="left-index">
+            <h1>Sobre a Astronomy Picture of the Day</h1>
+            <h3>A Astronomy Picture of the Day (APOD) é um website mantido pela NASA e pela Universidade Tecnológica de Michigan. <br>
+             De acordo com o website,"cada dia uma imagem ou foto diferente do universo é mostrada, com uma curta explicação escrita por um astrônomo profissional". - Wikipedia<br><br>
+            Este projeto foi criado utilizando a API (Application Program Interface) da APOD disponível gratuitamente pela NASA.</h3>
+            <img src="{% static 'img/nasa-logo.svg' %}" alt="nasa-logo">
+        </div>
+        <div class="rigth-index">
+            <div class="card-index">
+                <h1>Sobre</h1>
+                <div class="btn-index">
+                    <button type="button" onclick=window.location.href="https://apod.nasa.gov/apod/" >Acessar site oficial da APOD pela NASA</button>
+                    <button type="button" onclick=window.location.href="{% url 'index' %}" >Voltar para home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+function closeAlert() {
+    var alert = document.getElementById('alert-content');
+    alert.style.display = 'none';
+    }
+</script>

@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style_apod.css' %}">
+    <title>APOD</title>
+</head>
+<body>
+
+    {% for message in messages %}
+    <div class="alert-apod">
+        <div class="alert-content-apod" id="alert-content">
+            <p><strong>Mensagem:</strong> {{ message }} 
+                <button type="button" class="close" onclick="closeAlert();" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+    
+    <div class="main-apod">
+        <div class="form-apod">
+            <form action="/apod" method="post">{% csrf_token %}
+                <label for="">Insira a data da imagem:</label>
+                <input type="date" name='date'> 
+                <button type="submit" >Buscar imagem</button>
+            </form>
+        </div>
+        <div class="content-apod">
+            <img src="{% static 'img/learning-animate.svg' %}" alt="learning-apod-animate">
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+function closeAlert() {
+    var alert = document.getElementById('alert-content');
+    alert.style.display = 'none';
+    }
+</script>
+

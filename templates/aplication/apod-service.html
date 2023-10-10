@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style_service.css' %}">
+    <title>APOD</title>
+</head>
+<body>
+    <div class="main-apod">        
+    {% if request.method == "POST" %}
+        <div class="left-apod">
+            <h1>{{ response_json.title }}</h1>
+            <img src="{{ response_json.url }}" class="left-apod-image" alt="APOD Nasa image">
+        </div>
+        <div class="rigth-apod">
+            <div class="card-apod">
+                <p>{{ response_json.explanation }}
+                <br><br>
+                Créditos/Autor: {{ response_json.copyright }}, em {{ response_json.date }}</p>
+                <div class="btn-apod">
+                    <button type="button" onclick=window.location.href="{% url 'apod' %}"  >Escolher outra data</button>
+                    <button type="button" onclick=window.location.href="{% url 'index' %}" >Voltar para a home</button>
+                </div>
+            </div>
+        </div>
+    {% else %}
+    {% url 'index' as redirect_url %}
+        <script type="text/javascript">
+            window.location.href = {{ redirect_url }};
+        </script>
+    {% endif %}
+    </div>
+
+</body>
+</html>

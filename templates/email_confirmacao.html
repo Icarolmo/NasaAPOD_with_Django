@@ -1,0 +1,8 @@
+{% autoescape off %}
+
+Bem vindo {{ nome }} ao Picture of Day!<br>
+Por favor, clique no link de confimação abaixo e ative sua conta no webiste.<br>
+<br>
+Link de confirmação: http://{{ dominio }}{% url 'activate' uidb64=uid token=token %} <br>
+
+{% endautoescape %}

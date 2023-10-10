@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style_index.css' %}">
+    <title>Home</title>
+</head>
+<body>
+
+    {% for message in messages %}
+    <div class="alert-index">
+        <div class="alert-content-index" id="alert-content">
+            <p><strong>Mensagem:</strong> {{ message }} 
+                <button type="button" class="close" onclick="closeAlert();" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+    
+    <div class="main-index">
+        {% if user.is_authenticated %}
+        <div class="left-index">
+            <h1>Olá <strong>{{ user.first_name }}</strong>,<br>Seja bem vindo!</h1>
+            <img src="{% static 'img/metaverso-animate.svg' %}" class="left-index-image" alt="astronaut-animate">
+        </div>
+        <div class="rigth-index">
+            <div class="card-index">
+                    <h1>Home</h1>
+                    <div class="btn-index">
+                        <button type="button" onclick=window.location.href="{% url 'apod' %}" >Acessar à APOD</button>
+                        <button type="button" onclick=window.location.href="{% url 'sair' %}" >Deslogar</button>
+                        <button type="button" onclick=window.location.href="{% url 'sobre' %}" >Sobre à Astronomy Picture of Day (APOD)</button>
+                    </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="left-index">
+            <h1>Realize o login e acesse a APOD da NASA! <br><br>Não tem conta? <br> Crie uma em Registrar-se!</h1>
+            <img src="{% static 'img/virtual-reality-animate.svg' %}" alt="astronaut-animate">
+        </div>
+        <div class="rigth-index">
+            <div class="card-index">
+                <h1>Home</h1>
+                <div class="btn-index">
+                    <button type="button" onclick=window.location.href="{% url 'entrar' %}" >Login</button>
+                    <button type="button" onclick=window.location.href="{% url 'cadastro' %}" >Registrar-se</button>
+                    <button type="button" onclick=window.location.href="{% url 'sobre' %}" >Sobre à Astronomy Picture of Day (APOD)</button>
+                </div>
+            </div>
+        </div>
+        {% endif %} 
+    </div>
+
+</body>
+</html>
+
+<script>
+function closeAlert() {
+    var alert = document.getElementById('alert-content');
+    alert.style.display = 'none';
+    }
+</script>
