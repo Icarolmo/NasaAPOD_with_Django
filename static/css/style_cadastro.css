@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-cadastro{
+    width: 100vw;
+    height: 100vh;
+    background: #201a2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-cadastro{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-cadastro > h1{
+    color: white;
+    margin-left: 30px;
+}
+
+.left-cadastro > img {
+    width: 25vw;
+    height: auto;
+}
+
+.rigth-cadastro{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-cadastro{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 35px;
+    background: #2f2841;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+.card-cadastro > h1 {
+    color: white;
+    font-weight: 800;
+    margin: 0;
+}
+
+
+.form-cadastro > form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form-cadastro > form input {
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+
+.card-content-cadastro .or-line > span {
+    border-top: 1px solid #ffffff; /* Cor e estilo da linha (neste caso, uma linha sólida preta) */
+    display: inline-block; /* Faz com que a linha se comporte como um elemento de linha (para que não quebre a linha) */
+    width: 100px; /* Largura da linha (ajuste conforme necessário) */
+    margin: 0 10px; /* Margem para espaçamento antes e depois da linha (ajuste conforme necessário) */
+    vertical-align: middle; /* Alinhamento vertical para centralizar a linha */
+}
+
+.card-content-cadastro {
+    text-align: center;
+}
+
+/* Estilos para o texto do título */
+.card-content-cadastro .or-line > h5 {
+    color: white;
+    display: inline; /* Faz com que o título se comporte como um elemento de linha (para que não quebre a linha) */
+}
+
+.form-cadastro > form label {
+    text-align: left;
+    margin-left: 10px;
+    color: white;
+}
+
+.form-cadastro > form button {
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;  
+    background: #514869;
+    color: white;
+    font-size: 12px;
+    margin-bottom: 10px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+.btn-redirect-cadastro {
+    margin-top: 10px;
+}
+
+.btn-redirect-cadastro > button {
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;  
+    background: #514869;
+    color: white;
+    font-size: 12px;
+    margin-bottom: 10px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+@media only screen and (max-width: 950px){
+    .card-cadastro{
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .main-cadastro{
+        flex-direction: column;
+    }
+
+    .left-cadastro > h1{
+        display: none;
+    }
+
+    .left-cadastro > img{
+        display: none;
+    }
+
+    .left-cadastro {
+        width: 100%;
+        height: auto;
+    }
+
+    .rigth-cadastro {
+        width: 80%;
+        height: auto;
+    }
+
+    .card-content-cadastro .or-line  {
+        display: none;
+    }
+}

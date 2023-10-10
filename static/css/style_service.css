@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-apod{
+    width: 100vw;
+    height: 100vh;
+    background: #201a2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-apod{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../img/background.svg');
+    background-size: cover; /* Isso faz com que a imagem cubra todo o elemento pai */
+    background-repeat: no-repeat; /* Isso evita a repetição da imagem */
+    background-position: center center; /* Isso centraliza a imagem no elemento pai */
+
+    
+}
+
+.left-apod > h1{
+    color: rgb(255, 255, 255);
+    margin-left: 30px;
+}
+
+.left-apod > img {
+    max-width: 50vw;
+    max-height: 80vh;
+    margin-left: 5vw;
+}
+
+
+.rigth-apod{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-apod {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 35px;
+    background: #2f2841;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+.card-apod > p {
+    color: white;
+    margin: 0;
+    text-align: left;
+}
+
+.btn-apod{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+    margin-top: 30px;
+}
+
+.btn-apod > button {
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;  
+    background: #514869;
+    color: white;
+    font-size: 12px;
+    margin-bottom: 10px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px #00000056;
+}
